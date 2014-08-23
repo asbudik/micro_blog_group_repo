@@ -4,8 +4,9 @@
 
 
 ## General workflow: 
+by "feature" we mean "feature_branch_YourName"
 
-* "git checkout feature"  to go to feature
+* "git checkout -b feature"  to go to feature (-b is only necessary first time when you are creating you branch)
 *  make changes in feature 
 *  "git add -A"
 *  "git commit -m "description of the commit" "
