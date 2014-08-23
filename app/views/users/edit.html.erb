@@ -1,0 +1,9 @@
+<%= user_path  @user %>
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :first_name, placeholder: @user.first_name %>
+  <%= f.text_field :last_name, placeholder: @user.last_name %>
+  <%= f.text_field :email, placeholder: @user.email %>
+  <%= f.text_field :image_url, placeholder: @user.image_url %>
+  <%= f.submit "Update the User" %>
+<% end %> 
