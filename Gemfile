@@ -18,7 +18,7 @@ gem 'pry-rails'
 # group :development, :test do
 # 	gem 'rspec-rails', '~> 3.0.0'
 # end
-
+#
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
