@@ -15,6 +15,11 @@ gem 'pry-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+group :development, :test do
+	gem 'rspec-rails', '~> 3.0.0'
+end
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'pry-rails'
