@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 20140823005038) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: true do |t|
-    t.string   "name"
-    t.integer  "post_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", force: true do |t|
     t.string   "authors"
     t.text     "content"
@@ -46,6 +38,14 @@ ActiveRecord::Schema.define(version: 20140823005038) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posttags", force: true do |t|
+    t.string   "name"
+    t.integer  "post_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
