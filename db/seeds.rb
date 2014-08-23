@@ -45,6 +45,10 @@ post3.tags << tag2
 # add tag2 to post3 (luke's)
 post3.tags << tag2
 # add tag3 to post4 (luke's)
+user1.tags
+# # add tag2 to post3 and user2 (luke's)
+post3.tags << tag2
+# # add tag3 to post4 and user3 (luke's)
 post4.tags << tag3
 
 ############################
