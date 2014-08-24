@@ -1,35 +1,59 @@
 class PostsController < ApplicationController
 
-def index
-@all_posts =Post.all
-end
+  def index
+    find_user_posts
 
-def create
-post_data = params[:post].permit(:title, :body)
-end
+    @posts = Post.all
+  end
 
-def new
-end
+  def create
+    find_user_posts
 
-def edit
-@post= Post.find_by_id(params[:id])
-end
+    new_post = params.require(:post).permit(:title, :body)
+    @post = @user.posts.create(new_post)
 
-def update
-id_data=params[:id]
-post_data=params[:post].permit(:title,:body)
-end
+    redirect_to [@user, @post]
+  end
 
-def show
-end
+  def new
+    find_user_posts
+    @post = @user.posts.new
+  end
 
-def destroy
-post=Post.find_by_id(params[:id])
-if post
-post.destroy
-end
-redirect_to '/'
-end
+  def edit
+    find_user_posts
 
+    @post = @user.posts.find(params[:id])
+  end
 
+  def update
+    find_user_posts
+
+    new_update_post = params.require(:post).permit(:title, :body)
+    @post = @user.posts.find(params[:id])
+
+    @post.update_attributes(new_update_post)
+
+    redirect_to [@user, @post]
+  end
+
+  def show
+    find_user_posts
+    @post = @user.posts.find(params[:id])
+  end
+
+  def destroy
+    find_user_posts
+
+    @user.posts.find(params[:id]).destroy
+
+    redirect_to users_path(@user.id)
+  end
+
+  # find the specified user in order to render the posts
+  # that belong to that user
+  def find_user_posts
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+  end
 end

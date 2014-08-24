@@ -1,0 +1,13 @@
+<% @posts.each do |post| %>
+
+  <div>
+    <h2>Name: <%= post.title %> </h2><br>
+    <p>Description: <%=  post.body %></p>
+
+    <form method="post" action="/users/<%= @user.id %>">
+    <input name="_method" type="hidden" value="delete" /><button>Delete Post</button>
+    <%= token_tag form_authenticity_token %>
+    </form>
+  </div>
+
+<% end %>

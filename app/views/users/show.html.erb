@@ -8,6 +8,8 @@
 
 
 <!-- SHOW POSTS FOR THE USER -->
+<a href ="/users/<%= @user.id %>/posts/new">CREATE NEW POST</a>
+
 <% if @user.posts.length > 0 %>
 	<p><h1>Posts:</h1>
 		<% @user.posts.each do |post| %>
