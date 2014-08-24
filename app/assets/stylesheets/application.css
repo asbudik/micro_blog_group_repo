@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+
+.test {
+  background-image: url("fresh_snow.png");
+}
