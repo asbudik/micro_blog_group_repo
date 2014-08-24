@@ -33,6 +33,10 @@ tag1 = Tag.create({name: "#Master"})
 tag2 = Tag.create({name: "#Padavan"})
 tag3 = Tag.create({name: "#DarkSide"})
 
+post1.tags << tag1
+post2.tags << tag1
+post3.tags << tag2
+post4.tags << tag3
 
 ############################
 #create 4 comments
