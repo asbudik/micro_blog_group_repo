@@ -26,10 +26,66 @@
 	</ul>
 </h3>
 
+
 <!-- SHOW COMMENTS -->
+
+  <% @usser = @user.id %>
+
 <h1>Comments: </h1>
 <ul>
   <% @post.comments.each do |comment|%>
   <li><%= comment.content %></li>
+
+  <%= form_for @comment do |f| %>
+    <%= f.text_area :content, placeholder: "Type your comment here"%>
+    <input type="hidden" name="pid" value="<%=@post.id%>">
+    <input type="hidden" name="uid" value="<%=@usser%>">
+    <input type="hidden" name="cid" value="<%=comment.id%>" >
+
+    <%= f.submit "Save Comment" %>
   <% end %>
+
+  <!-- SHOW COMMENTS ON COMMENTS AND COMMENTS ON COMMENTS OF THE COMMENTS -->
+      <ul>
+        <% comment.comments.each do |comoncom|%>
+          <li><%= comoncom.content %></li>
+            
+            <%= form_for @comment do |f| %>
+              <%= f.text_area :content, placeholder: "Type your comment here"%>
+              <input type="hidden" name="pid" value="<%=@post.id%>">
+              <input type="hidden" name="uid" value="<%=@usser%>">
+              <input type="hidden" name="cid" value="<%=comoncom.id%>" >
+
+              <%= f.submit "Save Comment" %>
+            <% end %>
+
+
+
+
+
+            <% comoncom.comments.each do |ccc|%>
+                <h1><%= ccc.content%></h1>
+            <% end %>
+
+        <% end %>
+      </ul>
+  <% end %>
+
+
+
+
+
+  <%= form_for @comment do |f| %>
+    <%= f.text_area :content, placeholder: "Type your comment here"%>
+    <input type="hidden" name="pid" value="<%=@post.id%>">
+    <input type="hidden" name="uid" value="<%=@usser%>">
+
+    <%= f.submit "Save Comment" %>
+  <% end %>
+
 </ul>
+
+
+
+
+
