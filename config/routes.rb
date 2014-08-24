@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get '/users/:user_id/tags/:tag_id', to: 'tagusers#show'
+  
   get '/tags', to: 'tags#index'
   get '/tags/:id', to: 'tags#show'
 end

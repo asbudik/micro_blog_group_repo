@@ -14,3 +14,14 @@
   </form>
 <a class="back" href="../"><button>Back to Post</button></a>
 </div>
+
+
+<!-- SHOW TAGS -->
+<h2>Tags:</h2>
+<h3>
+	<ul>
+		<% @post.tags.each do |tag|%>
+			<li><a href="../../../tags/<%=tag.id%>"><%= tag.name %></a></li>
+		<% end %>
+	</ul>
+</h3>
