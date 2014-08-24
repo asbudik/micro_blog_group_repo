@@ -29,9 +29,9 @@ user3.posts << post4
 
 ############################
 # create 3 tags
-tag1 = Tag.create({name: "#Master"})
-tag2 = Tag.create({name: "#Padavan"})
-tag3 = Tag.create({name: "#DarkSide"})
+tag1 = Tag.create({name: "Master"})
+tag2 = Tag.create({name: "Padavan"})
+tag3 = Tag.create({name: "DarkSide"})
 
 post1.tags << tag1
 post2.tags << tag1

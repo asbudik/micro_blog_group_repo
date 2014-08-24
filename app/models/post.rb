@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
   has_many :posttags
   has_many :tags, :through => :posttags
 
-  validates :title, length: {:maximum => 20}, presence: true
+  validates :title, length: {:maximum => 50}, presence: true
   validates :body, length: {:maximum => 251}, presence: true
 end
