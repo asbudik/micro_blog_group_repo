@@ -18,3 +18,14 @@
 .test {
   background-image: url("fresh_snow.png");
 }
+
+.title {
+  font-size: 70px;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.body {
+  position: relative;
+  left: 40px;
+}
