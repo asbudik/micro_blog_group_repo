@@ -3,4 +3,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :posttags
   has_many :tags, :through => :posttags
+
+  validates :title, length: {:maximum => 20}, presence: true
+  validates :body, length: {:maximum => 251}, presence: true
 end
