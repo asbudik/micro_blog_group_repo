@@ -7,13 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar-collapse collapse navbar-custom" id="navbar-main">
+  <ul class="nav navbar-nav">
+    <li class="dropdown">
+      <a data-toggle="dropdown" href="/" id="themes" class="active homelink">BlogSpot</a>
+    </li>
+    <li>
+      <a href="/users" class="links">Users</a>
+    </li>
+    <li>
+      <a href="/posts" class="links">Posts</a>
+    </li>
+    <li>
+      <a href="/tags" class="links">Tags</a>
+    </li>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li class="about"><a class="links" href="/about_us">About Us</a></li>
+
+  </ul>
+
+</div>
+<div class="bg">
   <div class="container-fluid">
     <div class="container">
-    <h1 class="title">Micro Blog</h1>
-      <div class="body">
+      <h1 class="title">Micro Blog</h1>
+    </div>
+  </div>
+  </div>
+  <div class="container-fluid">
+  <div class="container">
+    <div class="body">
       <%= yield %>
       </div>
     </div>
   </div>
+  <div class="footer"></div>
 </body>
 </html>

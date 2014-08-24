@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require "bootstrap-3.2.0.min"
+ *= require "bootswatch.min"
  *= require_tree .
  *= require_self
  */
@@ -24,9 +25,57 @@ body {
   font-size: 70px;
   margin-bottom: 20px;
   letter-spacing: -2px;
+  text-align: center;
+  position: relative;
+  top: 30px;
 }
 
 .body {
   position: relative;
   left: 40px;
+}
+.navbar-custom {
+  background-color: rgba(0, 0, 0, .6);
+  border-bottom: 1px solid black;
+}
+.homelink {
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #f1f1f1;
+  text-shadow: 1px 1px 1px black;
+}
+
+.links {
+  font-size: 15px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.links:hover, .homelink:hover {
+  color: black;
+}
+.about {
+  position: relative;
+  left: -100px;
+}
+
+.bg {
+  height: 200px;
+  background-color: rgba(0, 0, 0, .2);
+  border: 1px solid grey;
+  margin-bottom: 30px;
+}
+
+a {
+  color: brown;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #CD4F39;
+  text-decoration: none;
+}
+
+.footer {
+  height: 70px;
 }
