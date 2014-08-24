@@ -1,13 +1,17 @@
 <div class="col-xs-offset-4 col-xs-4">
+
+<!-- DISPLAY USER INFO OF THE POST -->
 <div>
   <h2><%= @user.first_name %></h2> <h2><%= @user.last_name %></h2> <br>
 <br>
   <h6><%= @user.email %></h6><br>
 </div>
 
+<!-- FORM TO EDIt THE POST -->
   <%= form_for [@user, @post] do |f| %>
     <%= f.text_field :title, placeholder:  @post.title , class: "form-control"%><br>
     <%= f.text_area :body, placeholder: @post.body, class: "form-control" %><br>
     <%= f.submit "Save Comment", class: "edit-button btn btn-primary" %>
   <% end %>
+
 </div>
