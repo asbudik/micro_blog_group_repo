@@ -30,10 +30,12 @@
 
 <!-- DISPLAY TAGS OF THE USER -->
 <% if @user.tags.length > 0 %>
-	<p><h1>tags:</h1>
+	<p><h1>Tags:</h1>
+	<ul>
 		<% @user.tags.each do |tag| %>
-		<a href="/users/<%=@user.id%>/tags/<%=tag.id%>"><%=tag.name%></a>
+		<h2><li><a href="/tags/<%=tag.id%>"><%=tag.name%></a></li></h2>
 		<% end %>
+	</ul>
 	</p>
 <% end %>
 

@@ -1,0 +1,14 @@
+<!-- SHOW A LIST OF TAGS WITH A LIST OF ALL USERS + COMMENTS ASSOCIATED WITH THE TAG  -->
+
+<% @tags.each do |tag| %>
+
+<!-- DISPLAY TAG NAME -->
+	<h2><a href="tags/<%=tag.id%>"><%= tag.name %></a></h2>
+	
+	<!-- HOW MANY USERS WITH THE TAG -->
+	<h4>There are <%= tag.users.length %> users with this tag</h4>
+<!-- HOW MANY POSTS -->
+	<h4>There are <%= tag.posts.length %> posts with this tag</h4>
+
+
+<% end %>
