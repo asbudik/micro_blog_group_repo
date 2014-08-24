@@ -15,8 +15,9 @@
  *= require_self
  */
 
-.test {
+body {
   background-image: url("fresh_snow.png");
+  height: 100%;
 }
 
 .title {
