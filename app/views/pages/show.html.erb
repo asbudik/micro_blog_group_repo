@@ -9,7 +9,7 @@
 </div>
 <a class="back" href="../">Back to Post</a>
 <a href="<%= @page.id %>/edit"><button>Edit Page</button></a>
-<form method="post" action="/users/<%= @user.id %>">
+<form method="post" action="/users/<%= @user.id %>/pages/<%= @page.id %>">
   <input name="_method" type="hidden" value="delete" /><button>Delete Page</button>
   <%= token_tag form_authenticity_token %>
 </form>

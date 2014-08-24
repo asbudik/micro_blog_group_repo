@@ -30,10 +30,10 @@ class PostsController < ApplicationController
     find_user_posts
 
     new_update_post = params.require(:post).permit(:title, :body)
-    @post = @user.posts.find(params[:id])
+    @post = Post.all.find(params[:id])
 
     @post.update_attributes(new_update_post)
-
+    @post.save
     redirect_to [@user, @post]
   end
 
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   def destroy
     find_user_posts
 
-    @user.posts.find(params[:id]).destroy
+    Post.all.find(params[:id]).destroy
 
     redirect_to users_path(@user.id)
   end

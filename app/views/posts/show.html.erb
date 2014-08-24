@@ -6,8 +6,9 @@
 </div>
   <h4><%= @post.title %></h4> <br>
   <p><%=  @post.body %></p>
+  <a href="/users/<%= @user.id %>/posts/<%= @post.id%>/edit">Edit Post</a>
 </div>
-<form method="post" action="/users/<%= @user.id %>">
+<form method="post" action="/users/<%= @user.id %>/posts/<%= @post.id %>">
     <input name="_method" type="hidden" value="delete" /><button>Delete Post</button>
     <%= token_tag form_authenticity_token %>
   </form>

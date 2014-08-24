@@ -24,10 +24,12 @@ class PagesController < ApplicationController
     find_user_pages
 
     new_update_page = params.require(:page).permit(:name, :content)
-    @page = @user.pages.find(params[:id])
+    @page = Page.all.find(params[:id])
+
 
     @page.update_attributes(new_update_page)
-
+    @page.save
+    
     redirect_to [@user, @page]
   end
 
@@ -39,9 +41,10 @@ class PagesController < ApplicationController
   def destroy
     find_user_pages
 
-    @user.pages.find(params[:id]).destroy
+    Page.all.find(params[:id]).destroy
 
-    redirect_to users_path(@user.id)
+
+    redirect_to users_path
   end
 
   # find the specified user in order to render the pages
