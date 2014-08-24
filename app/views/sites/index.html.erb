@@ -1,9 +1,40 @@
-<a href="about_us"><button>About</button></a>
+<!-- LINK TO CREATE NEW USER -->
+<h1><a href="/users/new"> CREATE NEW USER </a></h1>
 
-<% @top_posts.each do |post| %>
-<div class="col-xs-3 headlines"><h4 class="headlines-title"><a href="posts/<%= post.id %>"><%= post.title %></a></h4>
-    <p><%= post.created_at.in_time_zone('Pacific Time (US & Canada)').strftime(" %B %d, %Y %I:%M %p") %></p>
-    <div class="divider"></div>
-    <p><%= post.body %></p>
-  </div>
+<% @users.each do |user| %>
+ <!-- DISPLAY USERS -->
+    <div>
+        <h2><%= user.first_name %></h2>
+        <h2><%= user.last_name %></h2>
+        <p>
+          <%= user.email %>
+          <%= user.image_url %>
+
+          <!-- LINK TO SHOW /USERS/U_ID -->
+          <h3><a href="/users/<%=user.id%>">More info on the User</a></h3>
+
+        </p>
+        
+    </div>
+
+    <!-- DISPLAY POSTS OF EACH USER -->
+    <% if user.posts.length > 0 %>
+      <p><h1>Posts:</h1>
+        <% user.posts.each do |post| %>
+        <a href="/users/<%=user.id%>/posts/<%=post.id%>"><%=post.title%></a>
+        <% end %>
+      </p>
+    <% end %>
+
+<!-- DISPLAY PAGE NAMES OF EACH USER -->
+    <% if user.pages.length > 0 %>
+      <p><h1>Pages:</h1>
+        <% user.pages.each do |page| %>
+          <a href="/users/<%=user.id%>/pages/<%=page.id%>"><%=page.name%></a>
+        <% end %>
+    </p>
+    <% end %>
+
+
+  <a href="/users/<%=user.id%>/posts/new"> Create a new post </a>
 <% end %>
