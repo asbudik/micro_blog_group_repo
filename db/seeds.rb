@@ -4,16 +4,16 @@ user2 = User.create({email: "luker@lightforce.co", first_name: "Luke", last_name
 user3 = User.create({email: "darkOG@darkforce.co", first_name: "Darth", last_name: "Vader",image_url:"darth/img/png"})
 
 # add some pages to user1 (Yoda)
-user1.pages.create({name: "hmmm", content: "you must unlearn what you have learned"});
-user1.pages.create({name: "Oh wow", content: "jedi's rock"});
-# add some pages to user2 (luke)
-user2.pages.create({name: "LukeAboutMe", content: "i know the force"});
-user2.pages.create({name: "LukeCOntact", content: "use the force to find me bro"})
-# add a page to user3 (Darth)
-user3.pages.create({name: "DeathStarResorts", content: "Please visit our family business!"});
+# user1.pages.create({name: "hmmm", content: "you must unlearn what you have learned"});
+# user1.pages.create({name: "Oh wow", content: "jedi's rock"});
+# # add some pages to user2 (luke)
+# user2.pages.create({name: "LukeAboutMe", content: "i know the force"});
+# user2.pages.create({name: "LukeCOntact", content: "use the force to find me bro"})
+# # add a page to user3 (Darth)
+# user3.pages.create({name: "DeathStarResorts", content: "Please visit our family business!"});
 
-#############################
-# create 4 posts
+# #############################
+# # create 4 posts
 post1 = Post.create({title: "the force using for dummies", body: "Coming soon by YODA"})
 post2 = Post.create({title: "lightsaber color chart", body: "chopping off limbs with style"})
 post3 = Post.create({title: "Help! My dad is missing", body: "Help me find my dad =("})
@@ -38,12 +38,12 @@ post2.tags << tag1
 post3.tags << tag2
 post4.tags << tag3
 
-############################
-#create 4 comments
-comment1 = Comment.create({content: "ty master, very helpful --the green girl from the front row"})
-comment2 = Comment.create({content: "sorry to hear that, man =( --JawaTheRobotSteeler"})
-comment3 = Comment.create({content: "I object! You could use some pushups yourself! --TrooperTheLazy"})
-comment4 = Comment.create({content: "I luv pushups!!! Yeeeeeah!!! --TrooperTheLifter"})
+###########################
+# create 4 comments
+comment1 = Comment.create({comment: "ty master, very helpful --the green girl from the front row"})
+comment2 = Comment.create({comment: "sorry to hear that, man =( --JawaTheRobotSteeler"})
+comment3 = Comment.create({comment: "I object! You could use some pushups yourself! --TrooperTheLazy"})
+comment4 = Comment.create({comment: "I luv pushups!!! Yeeeeeah!!! --TrooperTheLifter"})
 
 #add comment1 to post1
 post1.comments << comment1
@@ -53,17 +53,17 @@ post2.comments << comment2
 post4.comments << comment3
 post4.comments << comment4
 
-############################
-# create 3 comments-on-comments
-comment1ONE = Comment.create({content: "yeah i agree"})
-comment1TWO = Comment.create({content: "the master should learn some grammar"})
-comment4ONE = Comment.create({content: "Yeah man! That's the spirit! --Darth"})
+# ############################
+# # create 3 comments-on-comments
+comment1ONE = Comment.create({comment: "yeah i agree"})
+comment1TWO = Comment.create({comment: "the master should learn some grammar"})
+comment4ONE = Comment.create({comment: "Yeah man! That's the spirit! --Darth"})
 
-#add comment1ONE and comment1TWO to comment1
-comment1.comments << comment1ONE
-comment1.comments << comment1TWO
-#add comment4ONE to comment4
-comment4.comments << comment4ONE
+# #add comment1ONE and comment1TWO to comment1
+# comment1.commentable << comment1ONE
+# comment1.commentable << comment1TWO
+# #add comment4ONE to comment4
+# comment4.commentable << comment4ONE
 
 
 

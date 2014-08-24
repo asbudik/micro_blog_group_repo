@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :pages
     resources :posts do
-      # post '/comments', to: "comments#create"
+      resources :comments
     end
   end
 
-  post '/comments', to: "comments#create"
+
+  # post '/comments', to: "comments#create"
   get '/users/:user_id/tags/:tag_id', to: 'tagusers#show'
   
   get '/tags', to: 'tags#index'
