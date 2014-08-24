@@ -7,6 +7,9 @@
   <%= form_for [@user, @post] do |f| %>
     <%= f.text_field :title, placeholder: "Title", class: "form-control"%><br>
     <%= f.text_area :body, placeholder: "Post here", class: "form-control" %><br>
+
+    <!-- FIELD FOR TAGS -->
+     <%= text_field_tag :tags, nil, placeholder: "Enter a tag" %>
     <%= f.submit "Save Comment", class: "edit-button btn btn-primary" %>
   <% end %>
 </div>

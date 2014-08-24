@@ -12,6 +12,18 @@ class PostsController < ApplicationController
     new_post = params.require(:post).permit(:title, :body)
     @post = @user.posts.create(new_post)
 
+
+   # CREATE A TAG
+    tag_data = params[:tags].split(",").map(&:strip).map(&:downcase)
+
+    tag_data.each do |tag_str|
+      tag = Tag.find_by_name(tag_str)
+      if tag == nil
+        tag = Tag.create(:name => tag_str)
+      end
+      @post.tags << tag
+    end
+
     redirect_to [@user, @post]
   end
 
