@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
     @page.update_attributes(new_update_page)
     @page.save
-    
+
     redirect_to [@user, @page]
   end
 
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
     Page.all.find(params[:id]).destroy
 
 
-    redirect_to users_path
+    redirect_to page_path
   end
 
   # find the specified user in order to render the pages
