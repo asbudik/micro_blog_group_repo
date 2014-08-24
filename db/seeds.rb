@@ -33,23 +33,6 @@ tag1 = Tag.create({name: "#Master"})
 tag2 = Tag.create({name: "#Padavan"})
 tag3 = Tag.create({name: "#DarkSide"})
 
-# add tag1 to posts 1 and 2(yoda's)
-post1.tags << tag1
-post2.tags << tag1
-
-user1.tags
-# # add tag2 to post3 and user2 (luke's)
-post3.tags << tag2
-# # add tag3 to post4 and user3 (luke's)
-
-# add tag2 to post3 (luke's)
-post3.tags << tag2
-# add tag3 to post4 (luke's)
-user1.tags
-# # add tag2 to post3 and user2 (luke's)
-post3.tags << tag2
-# # add tag3 to post4 and user3 (luke's)
-post4.tags << tag3
 
 ############################
 #create 4 comments
