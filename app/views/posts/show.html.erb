@@ -29,16 +29,22 @@
 <%= form_for [@user, @post, @comment] do |f|%>
 <input type="hidden" name="user_id" value="<%= @user.id %>">
   <%= f.text_area :comment %>
+  <input type="hidden" name="comment_id" value="<%= @comment.id %>">
+
   <%= f.submit %>
 <%- end %>
 <!-- SHOW COMMENTS -->
 
-  <% @usser = @user.id %>
 
 <h1>Comments: </h1>
 <ul>
-  <% @post.comments.each do |comment|%>
-  <li><%= comment.comment %></li>
+  <% @post.comments.each do |post|%>
+  <li><%= post.title %></li>
+  <li><%= post %></li>
+  <%= form_for [@user, @post, @comment] do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "Post" %>
+    <% end %>
 
 
   <% end %>

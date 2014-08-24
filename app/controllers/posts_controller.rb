@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   def show
     find_user_posts
     @post = @user.posts.find(params[:id])
-    # @comment = @user.posts.find(params[:id]).comments.new
+    @comment = @user.posts.find(params[:id]).comments.new
     # @post.find(params[:id])
     @comment = @post.comments.new
   end
