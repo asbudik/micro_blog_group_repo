@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 	def create
-		new_user = params[:user].permit(:email,:first_name,:last_name,:image_url)
+		new_user = params[:user].permit(:email,:email_confirmation, :first_name,:last_name,:image_url)
 		User.create(new_user)
 		redirect_to users_path
 	end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     user_id = params[:id]
     user = User.find(user_id)
     
-    updated_params = params.require(:user).permit(:email,:first_name,:last_name,:image_url)
+    updated_params = params.require(:user).permit(:email,:email_confirmation,:first_name,:last_name,:image_url)
     user.update_attributes(updated_params)
     redirect_to user
   end
