@@ -17,14 +17,19 @@ ActiveRecord::Schema.define(version: 20140824201711) do
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.string   "author"
-    t.text     "content"
+    t.string   "title",            limit: 50, default: ""
+    t.text     "comment"
     t.integer  "commentable_id"
     t.string   "commentable_type"
-    t.integer  "post_id"
+    t.integer  "user_id"
+    t.string   "role",                        default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "pages", force: true do |t|
     t.string   "name"
