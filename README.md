@@ -1,13 +1,13 @@
-# Three things you learned:
+## Three things you learned:
   * Working as a team
   * Being very careful to avoid merge conflicts
   * Syncing up with team members to split work
   
-# Two topics you want to research further
+## Two topics you want to research further
   * General Git workflow
   * Nested comments
   
-# What did you enjoy in the project?
+## What did you enjoy in the project?
   * I enjoyed the opportunity to work with a team and develop a basic git workflow,
   especially in preperation for the group project next week. I particularly enjoy back-end.
   
