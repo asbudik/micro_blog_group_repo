@@ -8,7 +8,7 @@
   * Nested comments
   
 ## What did you enjoy in the project?
-  * I enjoyed the opportunity to work with a team and develop a basic git workflow,
+ * I enjoyed the opportunity to work with a team and develop a basic git workflow,
   especially in preperation for the group project next week. I particularly enjoy back-end.
   
  * Working out the logic and validations were fun.
