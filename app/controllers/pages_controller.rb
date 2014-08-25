@@ -5,7 +5,6 @@ class PagesController < ApplicationController
 
     new_page = params.require(:page).permit(:name, :content)
     @page = @user.pages.create(new_page)
-
     redirect_to [@user, @page]
   end
 

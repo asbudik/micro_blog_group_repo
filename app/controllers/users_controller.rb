@@ -8,11 +8,16 @@ class UsersController < ApplicationController
 	def new
 		@user = User.new
 	end
+
 	def create
 		new_user = params[:user].permit(:email,:email_confirmation, :first_name,:last_name,:image_url)
 		User.create(new_user)
+    if person.valid?
 		redirect_to users_path
+  else
+    person.errors[:email]
 	end
+  
 
 
 

@@ -22,8 +22,7 @@ class PostsController < ApplicationController
         tag = Tag.create(:name => tag_str)
       end
       @post.tags << tag
-    end
-
+  
     redirect_to [@user, @post]
   end
 
@@ -52,9 +51,9 @@ class PostsController < ApplicationController
   def show
     find_user_posts
     @post = @user.posts.find(params[:id])
-    # @comment = @user.posts.find(params[:id]).comments.new
+    @comment = @user.posts.find(params[:id]).comments.new
     # @post.find(params[:id])
-    @comment = @post.comments.new
+    # @comment = @post.comments.new
   end
 
 
