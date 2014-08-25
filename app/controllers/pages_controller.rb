@@ -5,8 +5,10 @@ class PagesController < ApplicationController
 
     new_page = params.require(:page).permit(:name, :content)
     @page = @user.pages.create(new_page)
-
-    redirect_to [@user]
+      if @page.valid?
+        flash[:notice] = "<ul>" + @page.errors.full_messages.map{|o| "<li>" + o + "</li>" }.join("") + "</ul>"
+      end
+    redirect_to [@user, @page]
   end
 
   def new
