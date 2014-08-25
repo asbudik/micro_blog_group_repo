@@ -1,73 +1,57 @@
 
 <!-- DISPLAY USER INFO -->
-<h2><%= @user.first_name %></h2>
-<p><%= @user.last_name %></p>
+<h1 class="subtitle"><%= @user.first_name %> <%= @user.last_name %></h1>
+<a href ="/users/<%= @user.id %>/posts/new"><button class="btn-default">CREATE NEW POST</button></a>
+<a href="/users/<%=@user.id%>/pages/new"><button class="btn-default">CREATE NEW PAGE</button></a>
 <p><%= @user.email %></p>
-<p><%= @user.image_url %></p>
+<p><img class="userimage" src="<%= @user.image_url %>"></p>
 
 
 
 <!-- SHOW POSTS FOR THE USER -->
-<a href ="/users/<%= @user.id %>/posts/new">CREATE NEW POST</a>
 
-<% if @user.posts.length > 0 %>
-	<p><h1>Posts:</h1>
-		<% @user.posts.each do |post| %>
-		<a href="/users/<%=@user.id%>/posts/<%=post.id%>"><%=post.title%></a>
-		<% end %>
-	</p>
-<% end %>
+<a href="/users/<%=@user.id%>/edit"><button class="btn-default">Edit this user?</button></a>
+<!-- DELETE BUTTON -->
+<%= button_to  "Delete This User?", user_path(@user), method: :delete, class: "btn-default" %>
 
-<!-- DISPLAY PAGES OF THE USER + "CREATE NEW PAGE" -->
-<a href="/users/<%=@user.id%>/pages/new">CREATE NEW PAGE</a>
-<% if @user.pages.length > 0 %>
-	<p><h1>Pages:</h1>
-		<% @user.pages.each do |page| %>
-		<a href="/users/<%=@user.id%>/pages/<%=page.id%>"><%=page.name%></a>
-		<% end %>
-	</p>
-<% end %>
-
+<div class="usertags">
+<h3 class="tagtitle">Tags</h3>
 <!-- DISPLAY TAGS OF THE USER -->
 <% if @user.tags.length > 0 %>
-	<p><h1>Tags:</h1>
+	<p>
 	<ul>
 		<% @user.tags.each do |tag| %>
-		<h2><li><a href="/tags/<%=tag.id%>"><%=tag.name%></a></li></h2>
+		<h6><li><a class="taglinks" href="/tags/<%=tag.id%>"><button class="btn-warning"><%=tag.name%></a></button></li></h6>
 		<% end %>
 	</ul>
 	</p>
 <% end %>
+</div>
 
+<div class="userposts">
+<h3>Posts</h3>
+<% if @user.posts.length > 0 %>
+	<p>
+		<% @user.posts.each do |post| %>
+
+		<h4><a href="/users/<%=@user.id%>/posts/<%=post.id%>"><%= post.title %></a><span class="userposttime"><%= post.created_at.in_time_zone('Pacific Time (US & Canada)').strftime(" %B %d, %Y %I:%M %p") %></span></h4>
+		<% end %>
+	</p>
+<% end %>
+</div>
+
+<div class="userpages">
+<!-- DISPLAY PAGES OF THE USER + "CREATE NEW PAGE" -->
+<h3>Pages</h3>
+<% if @user.pages.length > 0 %>
+	<p>
+		<% @user.pages.each do |page| %>
+		<a href="/users/<%=@user.id%>/pages/<%=page.id%>"><button class="btn-primary"><%=page.name%></button></a>
+		<% end %>
+	</p>
+<% end %>
+</div>
 <!-- EDIT HREF -->
-<h3><a href="/users/<%=@user.id%>/edit">EDIT YOUR USER</a></h3>
 
 <!-- LINK TO GO BACK TO LIST OF USERS -->
-<h3><a href="/users/">ALL USERS</a></h3>
-
-<!-- DELETE BUTTON -->
-<%= button_to  "Delete This User?", user_path(@user), method: :delete %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

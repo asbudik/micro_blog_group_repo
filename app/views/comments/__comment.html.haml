@@ -1,0 +1,5 @@
+.media-body
+  %h4.media-heading=comment.user.name
+  %i= comment.created_at.strftime('%b %d, %Y at %H:%M') 
+  %p= simple_format comment.content
+  = nested_comments comment.children

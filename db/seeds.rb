@@ -40,10 +40,10 @@ post4.tags << tag3
 
 ###########################
 # create 4 comments
-comment1 = Comment.create({comment: "ty master, very helpful --the green girl from the front row"})
-comment2 = Comment.create({comment: "sorry to hear that, man =( --JawaTheRobotSteeler"})
-comment3 = Comment.create({comment: "I object! You could use some pushups yourself! --TrooperTheLazy"})
-comment4 = Comment.create({comment: "I luv pushups!!! Yeeeeeah!!! --TrooperTheLifter"})
+comment1 = Comment.create({content: "ty master, very helpful --the green girl from the front row"})
+comment2 = Comment.create({content: "sorry to hear that, man =( --JawaTheRobotSteeler"})
+comment3 = Comment.create({content: "I object! You could use some pushups yourself! --TrooperTheLazy"})
+comment4 = Comment.create({content: "I luv pushups!!! Yeeeeeah!!! --TrooperTheLifter"})
 
 #add comment1 to post1
 post1.comments << comment1
@@ -55,9 +55,9 @@ post4.comments << comment4
 
 # ############################
 # # create 3 comments-on-comments
-comment1ONE = Comment.create({comment: "yeah i agree"})
-comment1TWO = Comment.create({comment: "the master should learn some grammar"})
-comment4ONE = Comment.create({comment: "Yeah man! That's the spirit! --Darth"})
+comment1ONE = Comment.create({content: "yeah i agree"})
+comment1TWO = Comment.create({content: "the master should learn some grammar"})
+comment4ONE = Comment.create({content: "Yeah man! That's the spirit! --Darth"})
 
 # #add comment1ONE and comment1TWO to comment1
 # comment1.commentable << comment1ONE

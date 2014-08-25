@@ -1,13 +1,16 @@
+<h1 class="subtitle">Posts</h1>
+<div class="postbox">
 <% @posts.each do |post| %>
 
   <div>
-    <h2>Name: <%= post.title %> </h2><br>
+    <h2>Title: <a href="<%= post.id %>"><%= post.title %> </a></h2><br>
     <p>Description: <%=  post.body %></p>
 
     <form method="post" action="/users/<%= @user.id %>">
-    <input name="_method" type="hidden" value="delete" /><button>Delete Post</button>
+    <input name="_method" type="hidden" value="delete" /><button class="btn-default">Delete Post</button>
     <%= token_tag form_authenticity_token %>
     </form>
   </div>
 
 <% end %>
+</div>

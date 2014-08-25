@@ -1,43 +1,33 @@
 
 
+<h1 class="subtitle">Many Blogs. So little time.</h1>
 
 <!-- LINK TO CREATE NEW USER -->
-<h1><a href="/users/new"> CREATE NEW USER </a></h1>
-
+<div class="displayhomepage">
 <% @users.each do |user| %>
  <!-- DISPLAY USERS -->
-    <div>
-        <h2><%= user.first_name %></h2>
-        <h2><%= user.last_name %></h2>
-        <p>
-          <%= user.email %>
-          <%= user.image_url %>
+  <div>
+      <h2><img class="profilepic" src="<%= user.image_url %>">
+      <a href="/users/<%=user.id%>"><%= user.first_name %>
+      <%= user.last_name %></a></h2>
+      <p>
+        <%= user.email %>
+        <% if user.posts.length > 0 %>
+        <% count = 0 %>
+        <% while count < 3 %>
+         <% if user.posts[-1 - count] != nil %>
+          <h4><a href="/users/<%=user.id%>/posts/<%=user.posts[-1 - count].id%>"><%= user.posts[-1 - count].title %></a><%= user.posts[-1 - count].created_at.in_time_zone('Pacific Time (US & Canada)').strftime(" %B %d, %Y %I:%M %p") %></h4>
+            <% end %>
 
-          <!-- LINK TO SHOW /USERS/U_ID -->
-          <h3><a href="/users/<%=user.id%>">More info on the User</a></h3>
-
-        </p>
+          <% count += 1 %>
+          <% end %>
+          <% end %>
+        <!-- LINK TO SHOW /USERS/U_ID -->
+        <h5><a class="moreinfo" href="/users/<%=user.id%>">More info on the User</a></h5>
+        </div>
         
-    </div>
 
-    <!-- DISPLAY POSTS OF EACH USER -->
-		<% if user.posts.length > 0 %>
-			<p><h1>Posts:</h1>
-				<% user.posts.each do |post| %>
-				<a href="/users/<%=user.id%>/posts/<%=post.id%>"><%=post.title%></a>
-				<% end %>
-			</p>
-		<% end %>
-
-<!-- DISPLAY PAGE NAMES OF EACH USER -->
-		<% if user.pages.length > 0 %>
-			<p><h1>Pages:</h1>
-				<% user.pages.each do |page| %>
-					<a href="/users/<%=user.id%>/pages/<%=page.id%>"><%=page.name%></a>
-				<% end %>
-		</p>
-		<% end %>
-
-
-  <a href="/users/<%=user.id%>/posts/new"> Create a new post </a>
-<% end %>
+      </p>
+   <% end %>
+  </div>
+  </div>

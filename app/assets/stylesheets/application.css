@@ -20,16 +20,110 @@ body {
   background-image: url("fresh_snow.png");
   height: 100%;
 }
-
+.profilepic {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  margin-top: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid grey;
+}
+.postbox {
+  width: 500px;
+}
+.postbody {
+  position: relative;
+  top: -380px;
+}
+.comment-body {
+  margin-top: 10px;
+}
+.comments {
+  position: relative;
+  left: -200px;
+  top: -320px;
+  padding-top: -100px;
+}
+.comment-submit {
+  margin-bottom: 30px;
+}
+.tagnameforposts {
+  position: relative;
+  left: 80px;
+}
+.postusertags {
+  float: right;
+  position: relative;
+  left: 280px;
+  top: -490px;
+}
+.subtitle {
+  margin-bottom: 50px;
+  letter-spacing: -2px;
+}
+.usertags {
+  float: right;
+  margin-left: 40px;
+  padding-right: 30px;
+  position: relative;
+  top: -410px;
+}
+.btn-default {
+  margin-bottom: 40px;
+}
+.userimage {
+  width: 200px;
+  height: 200px;
+  border: 2px solid grey;
+  margin: 15px;
+  margin-bottom: 50px;
+}
+.userposts {
+  float: right;
+  width: 500px;
+  position: relative;
+  top: -400px;
+}
+.userposttime {
+  float: right;
+  font-size: 15px;
+  letter-spacing: -1px;
+}
+.displayhomepage {
+  margin-top: 60px;
+  border: 1px solid grey;
+  padding: 20px;
+  width: 800px;
+  margin: 0 auto;
+}
+.moreinfo {
+  float: right;
+  position: relative;
+  top: -20px;
+}
+.recentposts {
+  position: relative;
+  left: 400px;
+  top: -120px;
+}
+.form {
+  width: 400px;
+  margin: 0 auto;
+}
 .title {
   font-size: 70px;
   margin-bottom: 20px;
-  letter-spacing: -2px;
+  letter-spacing: -4px;
   text-align: center;
+  font-weight: bolder;
   position: relative;
   top: 30px;
+  text-shadow: 1px 1px 3px white;
 }
-
+.deletepage {
+  float: left;
+  margin-right: 5px;
+}
 .body {
   position: relative;
   left: 40px;
@@ -41,6 +135,7 @@ body {
 .homelink {
   font-size: 18px;
   letter-spacing: 3px;
+  font-weight: bolder;
   color: #f1f1f1;
   text-shadow: 1px 1px 1px black;
 }
@@ -70,10 +165,28 @@ a {
   color: brown;
   text-decoration: none;
 }
-
+.btn-warning {
+  width: 150px;
+  color: white;
+  padding: 5px;
+}
+.tagtitle {
+  position: relative;
+  left: 90px;
+  margin-bottom: 30px;
+}
+li {
+  list-style-type: none;
+}
 a:hover {
   color: #CD4F39;
   text-decoration: none;
+}
+
+.taglinks {
+  color: white;
+  letter-spacing: 2px;
+  padding: 5px;
 }
 
 .footer {

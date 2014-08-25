@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     end
 
     redirect_to [@user, @post]
+
   end
 
   def new
@@ -53,8 +54,9 @@ class PostsController < ApplicationController
     find_user_posts
     @post = @user.posts.find(params[:id])
     @comment = @user.posts.find(params[:id]).comments.new
-    # @post.find(params[:id])
-    @comment = @post.comments.new
+  
+      
+
   end
 
 

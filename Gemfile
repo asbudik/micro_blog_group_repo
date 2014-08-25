@@ -44,5 +44,4 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'acts_as_commentable'
-gem 'awesome_nested_set'
+gem 'closure_tree'

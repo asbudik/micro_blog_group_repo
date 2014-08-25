@@ -1,9 +1,9 @@
 <!-- SHOW A LIST OF TAGS WITH A LIST OF ALL USERS + COMMENTS ASSOCIATED WITH THE TAG  -->
-
+<h1 class="subtitle">Tags</h1>
 <% @tags.each do |tag| %>
 
 <!-- DISPLAY TAG NAME -->
-	<h2><a href="tags/<%=tag.id%>"><%= tag.name %></a></h2>
+	<h2><a href="tags/<%=tag.id%>"><button class="btn btn-warning"><%= tag.name %></button></a></h2>
 	
 	<!-- HOW MANY USERS WITH THE TAG -->
 	<h4>There are <%= tag.users.length %> users with this tag</h4>
