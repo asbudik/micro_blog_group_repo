@@ -1,16 +1,2 @@
-<h1 class="subtitle"><%= @user.first_name %> <%= @user.last_name %></h1> <br>
-  <h4><%= @user.email %></h4><br>
 
-<div class="col-xs-offset-4 col-xs-4">
-
-
-
-<!-- FORM FOR NEW PAGE -->
-<div class="form">
-  <%= form_for [@user, @page] do |f| %>
-    <%= f.text_field :name, placeholder: "Page name", class: "form-control"%><br>
-    <%= f.text_area :content, placeholder: "Page content here", class: "form-control" %><br>
-    <%= f.submit "Save Comment", class: "edit-button btn btn-success form-control" %>
-  <% end %>
-  </div>
-</div>
+<%= render partial: "form", locals: {user: @user, page: @page} %>

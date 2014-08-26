@@ -1,0 +1,5 @@
+<div>
+  <% @pages.each do |page| %>
+    <%= render partial: 'page', :locals => {:page => page, :user => @user} %>
+  <% end %>
+</div>

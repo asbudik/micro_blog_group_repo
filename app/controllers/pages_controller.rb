@@ -1,58 +1,51 @@
-class PagesController < ApplicationController
-
-  def create
-    find_user_pages
-
-    new_page = params.require(:page).permit(:name, :content)
-    @page = @user.pages.create(new_page)
-      if @page.valid?
-        flash[:notice] = "<ul>" + @page.errors.full_messages.map{|o| "<li>" + o + "</li>" }.join("") + "</ul>"
-      end
-    redirect_to [@user, @page]
-  end
-
-  def new
-    find_user_pages
-    @page = @user.pages.new
-  end
-
-  def edit
-    find_user_pages
-
-    @page = @user.pages.find(params[:id])
-  end
-
-  def update
-    find_user_pages
-
-    new_update_page = params.require(:page).permit(:name, :content)
-    @page = Page.all.find(params[:id])
-
-
-    @page.update_attributes(new_update_page)
-    @page.save
-
-    redirect_to [@user, @page]
+class PagesController < ApplicationController  
+  before_action :find_user
+  before_action :find_user_page, :except => [:index, :new, :create]
+  def index
+    @pages = @user.pages
   end
 
   def show
-    find_user_pages
-    @page = @user.pages.find(params[:id])
+  end
+  
+  def new
+    @page = Page.new
   end
 
-  def destroy
-    find_user_pages
-
-    Page.all.find(params[:id]).destroy
-
-
-    redirect_to page_path
+  def edit
   end
 
-  # find the specified user in order to render the pages
-  # that belong to that user
-  def find_user_pages
-    user_id = params[:user_id]
-    @user = User.find(user_id)
+  def create
+    page = @user.pages.new(page_params)
+    if page.save
+      redirect_to user_pages_path(@user.id)
+    else
+      redirect_to new_user_page_path @user.id
+    end
   end
+
+  def update
+    unless @page.update_attributes(page_params)
+      redirect_to user_pages_path(@user.id)
+    else
+      redirect_to user_page_path @user.id, @page.id
+    end
+  end
+
+  private
+    def find_user
+      user_id = params[:user_id]
+      @user = User.find_by_id(user_id)
+      redirect_to users_path unless @user
+    end
+
+    def find_user_page
+      id = params[:id]
+      @page = Page.find_by_id(id)
+      redirect_to user_pages_path(@user.id) unless @page
+    end
+
+    def page_params
+      params.require(:page).permit(:name, :content)
+    end
 end

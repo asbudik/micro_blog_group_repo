@@ -1,0 +1,7 @@
+<div>
+  <h3><%= page.name %></h3>
+  <div>
+    <p><%= page.content.split(/\n+/).join("</p><p>") %></p>
+  </div>
+  <%= button_to "Edit Page", edit_user_page_path(user.id, page.id), :method => :get %>
+</div>
