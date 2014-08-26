@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionController < ApplicationController
 	def new
 	end
 	def create
@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
 	end
 	def destroy
 		session[:user_id]=nil
-		render text: "logged out"
+		# render text: "logged out"
+		redirect_to '/'
 	end
 end

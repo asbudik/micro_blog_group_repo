@@ -3,7 +3,7 @@
 
 <!-- LINK TO CREATE NEW USER -->
 <h1><a href="/users/new"> CREATE NEW USER </a></h1>
-
+<!-- <button><a href="/logout">Logout</a></button> -->
 <% @users.each do |user| %>
  <!-- DISPLAY USERS -->
     <div>
@@ -17,7 +17,7 @@
           <h3><a href="/users/<%=user.id%>">More info on the User</a></h3>
 
         </p>
-        
+
     </div>
 
     <!-- DISPLAY POSTS OF EACH USER -->
