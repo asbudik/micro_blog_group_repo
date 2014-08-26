@@ -3,10 +3,13 @@
 <%= form_for @user do |f| %>
 
   <%= f.text_field :email, placeholder: "EMAIL"%> <br>
-	<%= f.text_field :email_confirmation, placeholder: "please confirm email" %>
+	<%= f.text_field :email_confirmation, placeholder: "please confirm email" %><br>
+  <%= f.password_field :password, placeholder: "password"%><br>
+  <%=f.password_field :password_confirmation, placeholder: "confirm password"%><br>
+
   <%= f.text_field :first_name,placeholder: "First Name" %> <br>
   <%= f.text_field :last_name, placeholder: "Last Name" %> <br>
   <%= f.text_field :image_url, placeholder: "Url to your image" %> <br>
 
   <%= f.submit "Save NEW User" %>
-<% end %> 
+<% end %>
