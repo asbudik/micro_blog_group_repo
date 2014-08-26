@@ -3,8 +3,11 @@
 <div class="form">
 <%= form_for @user do |f| %>
 
-  <%= f.text_field :email, placeholder: "EMAIL", class: "form-control"%> <br>
+  <%= f.text_field :email, placeholder: "email", class: "form-control"%> <br>
 	<%= f.text_field :email_confirmation, placeholder: "please confirm email", class: "form-control" %><br>
+	<%= f.text_field :password, placeholder: "Password", class: "form-control" %><br>
+	<%= f.text_field :password_confirmation, placeholder: "confirm password", class: "form-control" %><br>
+
   <%= f.text_field :first_name,placeholder: "First Name", class: "form-control" %> <br>
   <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %> <br>
   <%= f.text_field :image_url, placeholder: "Url to your image", class: "form-control" %> <br>
