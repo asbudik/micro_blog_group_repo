@@ -1,4 +1,4 @@
-class SiteController < ApplicationController
+class SitesController < ApplicationController
 
   def index
     @users = User.all.limit(3).order(created_at: :desc)
