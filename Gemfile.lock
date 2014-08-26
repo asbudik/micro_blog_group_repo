@@ -146,17 +146,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   bcrypt (~> 3.1.7)
->>>>>>> added a login page, updated user model to reflect specs, session controller
   closure_tree
-=======
-  acts_as_commentable
-  awesome_nested_set
-  bcrypt (~> 3.1.7)
->>>>>>> some changes for auth
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails
