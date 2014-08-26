@@ -11,13 +11,14 @@ class SessionController < ApplicationController
 			session[:user_id] = @user.user_id
 			render text: "your logged in!"
 		else
-			render text: "not loggied in"
+			render text: "not logged in"
 		end
 	end
 
 	def destroy
 		session[:user_id] =nil
-		render text: "logged out!"
+		# render text: "logged out!"
+		redirect_to '/'
 	end
 
 end

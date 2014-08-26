@@ -3,11 +3,10 @@
 <div class="form">
 <%= form_for @user do |f| %>
 
-<<<<<<< HEAD
   <%= f.text_field :email, placeholder: "email", class: "form-control"%> <br>
-	<%= f.text_field :email_confirmation, placeholder: "please confirm email", class: "form-control" %><br>
-	<%= f.password_field :password, placeholder: "Password", class: "form-control" %><br>
-	<%= f.password_field :password_confirmation, placeholder: "confirm password", class: "form-control" %><br>
+  <%= f.text_field :email_confirmation, placeholder: "please confirm email", class: "form-control" %><br>
+  <%= f.password_field :password, placeholder: "Password", class: "form-control" %><br>
+  <%= f.password_field :password_confirmation, placeholder: "confirm password", class: "form-control" %><br>
 
   <%= f.text_field :first_name,placeholder: "First Name", class: "form-control" %> <br>
   <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %> <br>
@@ -16,16 +15,3 @@
   <%= f.submit "Save NEW User", class: "btn form-control btn-success" %>
 <% end %> 
 </div>
-=======
-  <%= f.text_field :email, placeholder: "EMAIL"%> <br>
-	<%= f.text_field :email_confirmation, placeholder: "please confirm email" %><br>
-  <%= f.password_field :password, placeholder: "password"%><br>
-  <%=f.password_field :password_confirmation, placeholder: "confirm password"%><br>
-
-  <%= f.text_field :first_name,placeholder: "First Name" %> <br>
-  <%= f.text_field :last_name, placeholder: "Last Name" %> <br>
-  <%= f.text_field :image_url, placeholder: "Url to your image" %> <br>
-
-  <%= f.submit "Save NEW User" %>
-<% end %>
->>>>>>> auth

@@ -28,12 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-<<<<<<< HEAD
-=======
-    awesome_nested_set (3.0.0)
-      activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.7)
->>>>>>> some changes for auth
     builder (3.2.2)
     closure_tree (5.0.0)
       activerecord (>= 3.2.0)
@@ -152,6 +147,10 @@ PLATFORMS
 
 DEPENDENCIES
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  bcrypt (~> 3.1.7)
+>>>>>>> added a login page, updated user model to reflect specs, session controller
   closure_tree
 =======
   acts_as_commentable
