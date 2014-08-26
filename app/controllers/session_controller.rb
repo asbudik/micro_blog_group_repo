@@ -11,7 +11,7 @@ class SessionController < ApplicationController
 			session[:user_id] = @user.user_id
 			render text: "your logged in!"
 		else
-			render text: "not logged in"
+			render text: "not loggied in"
 		end
 	end
 
