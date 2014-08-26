@@ -1,77 +1,69 @@
 class PostsController < ApplicationController
-
+  before_action :find_user
+  before_action :find_user_post, :except => [:index, :new, :create]
   def index
-    find_user_posts
-
     @posts = @user.posts
   end
 
   def create
-    find_user_posts
-
-    new_post = params.require(:post).permit(:title, :body)
-    @post = @user.posts.create(new_post)
-
-
-   # CREATE A TAG
-    tag_data = params[:tags].split(",").map(&:strip).map(&:downcase)
-
-    tag_data.each do |tag_str|
-      tag = Tag.find_by_name(tag_str)
-      if tag == nil
-        tag = Tag.create(:name => tag_str)
-      end
-      @post.tags << tag
+    post = Post.new(post_params)
+    if post.save && @user
+      post.add_tags tag_params
+      @user.posts << post
+      redirect_to user_posts_path(@user.id)
+    else
+      flash[:error] = post.errors.full_messages.to_sentence
+      redirect_to new_user_post_path @user.id
     end
-
-    redirect_to [@user, @post]
-
   end
 
   def new
-    find_user_posts
-    @post = @user.posts.new
+    @post = Post.new
   end
 
   def edit
-    find_user_posts
-
-    @post = @user.posts.find(params[:id])
   end
 
   def update
-    find_user_posts
-
-    new_update_post = params.require(:post).permit(:title, :body)
-    @post = Post.all.find(params[:id])
-
-    @post.update_attributes(new_update_post)
-    @post.save
-    redirect_to [@user, @post]
+    if @post.update_attributes(post_params)
+      @post.add_tags tag_params
+      redirect_to user_posts_path(@user)
+    else
+      redirect_to user_post_path @user.id, @post.id
+    end
   end
 
   def show
-    find_user_posts
-    @post = @user.posts.find(params[:id])
-    @comment = @user.posts.find(params[:id]).comments.new
-  
-      
-
+    @comments = @post.comments
+    @post_tags = @post.tags
+    @tags = @user.tags.uniq {|tag| tag.name} 
   end
 
 
   def destroy
-    find_user_posts
-
-    Post.all.find(params[:id]).destroy
-
-    redirect_to users_path(@user.id)
+    @post.destroy
+    redirect_to user_posts_path @user.id
   end
 
   # find the specified user in order to render the posts
   # that belong to that user
-  def find_user_posts
-    user_id = params[:user_id]
-    @user = User.find(user_id)
-  end
+  private
+    def find_user
+      user_id = params[:user_id]
+      @user = User.find_by_id(user_id)
+      redirect_to users_path unless @user
+    end
+    def find_user_post
+      id = params[:id]
+      @post = Post.find_by_id(id)
+      redirect_to user_posts_path(@user.id) unless @post
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :body)
+    end
+
+    def tag_params
+      tags = params[:tags].split(/\,\s*|\s*\#|\s+/)
+    end
 end

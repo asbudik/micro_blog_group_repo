@@ -1,0 +1,21 @@
+<div class="row">
+  <h2 class="col-xs-offset-1 col-xs-10"><%= post.title.titleize %></h2>
+</div>
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10">
+    <p><%= post.body.split(/\n+/).join("</p><p>") %></p>
+  </div>
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-11">
+      <% tags.each do |tag| %>
+        <%= render partial: "tags/tag", locals: {tag: tag, user: user} %>    <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="row">
+      <%= button_to "Edit Post", edit_user_post_path(user.id, post.id), :method => :get, class: "btn btn-primary col-xs-offset-9 col-xs-2" %>
+   </div>
+   <div class="row">
+     <%= button_to "Delete", user_post_path(@user.id, @post.id), method: :delete, class: "col-xs-offset-9 col-xs-2 btn btn-danger" %>
+  </div>
+</div>

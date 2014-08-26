@@ -15,6 +15,52 @@
  *= require_tree .
  *= require_self
  */
+@media (max-width: 768px){
+  .crop {
+    overflow: hidden;
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px){
+  .crop {
+    overflow: hidden;
+    height: 150px;
+  }
+}
+
+.cust-con {
+  padding-top: 50px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+.btn-cust {
+  width: 100%; 
+}
+
+.comments {
+ padding-top: 25px;
+}
+.comment-con {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*background-color:#7f8c8d;*/
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.comment-content {
+  /*background-color: #ecf0f1;*/
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.error {
+  background-color: red;
+  color: white;
+  padding: 25px;
+}
 
 body {
   background-image: url("fresh_snow.png");
@@ -34,18 +80,6 @@ body {
 .postbody {
   position: relative;
   top: -380px;
-}
-.comment-body {
-  margin-top: 10px;
-}
-.comments {
-  position: relative;
-  left: -200px;
-  top: -320px;
-  padding-top: -100px;
-}
-.comment-submit {
-  margin-bottom: 30px;
 }
 .tagnameforposts {
   position: relative;

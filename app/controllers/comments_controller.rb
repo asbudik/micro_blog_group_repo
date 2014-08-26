@@ -1,42 +1,26 @@
 class CommentsController < ApplicationController
+  before_action :find_parent
+  
+  def create
+    @parent.comments.create(comment_params)
+    redirect_to_post 
+  end
 
-	def create
+  private
 
-		new_comment = params.require(:comment).permit(:content)
-		postID = params.require(:pid)
-		userID = params.require(:uid)
+    def find_parent
+      @parent = @post = Post.find_by_id(params[:post_id])
+      if params[:id]
+        @parent = Comment.find_by_id(params[:id])
+      end
+      redirect_to users_path unless @parent
+    end
 
-		@comment = Comment.create(new_comment)
-		@post = Post.find(postID)
+    def comment_params
+      params.require(:comment).permit(:content)
+    end
 
-		if params[:cid] != nil
-			commID = params.require(:cid)
-			@comnt = Comment.find(commID)
-			@comnt.comments << @comment
-		else
-			@post.comments << @comment
-		end
-
-		redirect_to "/users/#{userID}/posts/#{postID}"
-    
-   #  def create
-   #    comment_params = params.require(:comment).permit(:author, :content)
-   #    @comment = Comment.new(comment_params)
-
-	  # if params[:comment][:parent_id].to_i > 0
-	  #   parent = Comment.find_by_id(params[:comment].delete(:parent_id))
-	  #   @comment = parent.children.build(comment_params)
-	  # else
-	  #   @comment = Comment.new(comment_params)
-	  # end
-	 
-	  # if @comment.save
-	  #   flash[:success] = 'Your comment was successfully added!'
-	  #   redirect_to root_url
-	  # else
-	  #   render 'new'
-	  # end
-		# redirect_to "/users/#{userID}/posts/#{postID}"
-	end
-	
+    def redirect_to_post
+      redirect_to user_post_path @post.user_id, @post.id
+    end
 end

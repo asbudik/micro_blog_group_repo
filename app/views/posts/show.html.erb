@@ -1,85 +1,10 @@
-<h1 class="subtitle"><%= @user.first_name %> <%= @user.last_name %></h1> <br>
-  <h4><%= @user.email %></h4><br>
-   <a href="/users/<%= @user.id %>/posts/<%= @post.id%>/edit"><button class="btn-default">Edit Post</button></a>
-<form method="post" action="/users/<%= @user.id %>/posts/<%= @post.id %>">
-    <input name="_method" type="hidden" value="delete" /><button class="btn-default">Delete Post</button>
-    <%= token_tag form_authenticity_token %>
-  </form>
-<a class="back" href="../"><button class="btn-default">Back to Post</button></a>
-</div>
-<div class="col-xs-offset-4 col-xs-4">
-<div class="postbody">
-  <h2><%= @post.title %></h2> <br>
-  <p><%=  @post.body %></p>
-</div>
-<div class="postusertags">
-<!-- SHOW TAGS -->
-<h2 class="tagnameforposts">Tags</h2>
-<h3>
-  <ul>
-    <% @post.tags.each do |tag|%>
-      <li><a href="../../../tags/<%=tag.id%>"><button class="btn-warning"><%= tag.name %></button></a></li>
-    <% end %>
-  </ul>
-</h3></div>
-
-
-<!-- SHOW COMMENTS -->
-<div class="comments">
-  <% @usser = @user.id %>
-
-<h1>Comments: </h1>
-<ul>
-  <% @post.comments.each do |comment|%>
-  <li><%= comment.content %></li>
-
-  <%= form_for [@user, @post, @comment] do |f| %>
-    <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control comment-body"%>
-    <input type="hidden" name="pid" value="<%=@post.id%>">
-    <input type="hidden" name="uid" value="<%=@usser%>">
-    <input type="hidden" name="cid" value="<%=comment.id%>" ><br>
-
-    <%= f.submit "Save Comment", class: "form-control comment-submit" %>
+<div>
+  <%= render partial: "post", :locals => {:post => @post, :user => @user, tags: @post_tags} %>
+  <div class="comments col-xs-11">
+  <%= render :partial => "tags/tags", :locals => {tags: @tags, user: @user} %>
+  <% @comments.each do |comment| %>
+    <%= render partial: "comments/comment", :locals => {:comment => comment } %>
   <% end %>
-
-  <!-- SHOW COMMENTS ON COMMENTS AND COMMENTS ON COMMENTS OF THE COMMENTS -->
-      <ul>
-        <% comment.comments.each do |comoncom|%>
-          <li><%= comoncom.content %></li>
-            
-            <%= form_for [@user, @post, @comment] do |f| %>
-              <%= f.text_area :content, placeholder: "Type your comment here", class: "comment-body form-control"%>
-              <input type="hidden" name="pid" value="<%=@post.id%>">
-              <input type="hidden" name="uid" value="<%=@usser%>">
-              <input type="hidden" name="cid" value="<%=comoncom.id%>" ><br>
-
-              <%= f.submit "Save Comment", class: "form-control comment-submit" %>
-            <% end %>
-
-
-
-
-
-            <% comoncom.comments.each do |ccc|%>
-                <p><%= ccc.content%></p>
-            <% end %>
-
-        <% end %>
-      </ul>
-  <% end %>
-
-
-
-<!-- outer comment -->
-
-  <%= form_for [@user, @post, @comment] do |f| %>
-    <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control comment-body"%>
-    <input type="hidden" name="pid" value="<%=@post.id%>">
-    <input type="hidden" name="uid" value="<%=@usser%>"><br>
-
-    <%= f.submit "Save Comment", class: "form-control comment-submit" %>
-  <% end %>
-
-</ul>
-</div>
+  </div>
+  <%= render :partial => "comments/form", :locals => {:parent => @post, :comment => @post.comments.new} %>
 </div>
