@@ -36,6 +36,10 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+group :development do 
+	gem "letter_opener"
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
