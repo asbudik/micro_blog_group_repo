@@ -14,7 +14,12 @@ Rails.application.routes.draw do
 
   # post '/comments', to: "comments#create"
   get '/users/:user_id/tags/:tag_id', to: 'tagusers#show'
-  get '/posts', to: 'posts#show'
+
   get '/tags', to: 'tags#index'
   get '/tags/:id', to: 'tags#show'
+
+  #sessions route
+   delete "/logout" => "session#destroy"
+    get "/logout" => 'session#destroy'
+    
 end

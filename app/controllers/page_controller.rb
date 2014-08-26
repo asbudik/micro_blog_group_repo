@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PageController < ApplicationController
 
   def create
     find_user_pages

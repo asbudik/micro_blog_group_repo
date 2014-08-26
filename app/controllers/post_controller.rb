@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostController < ApplicationController
 
   def index
     find_user_posts

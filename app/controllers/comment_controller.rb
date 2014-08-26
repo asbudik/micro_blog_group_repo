@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class CommentController < ApplicationController
 
 	def create
 
