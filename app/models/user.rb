@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	  has_many :posts
-	  has_many :pages
+	  has_many :posts, dependent: :destroy
+	  has_many :pages, dependent: :destroy
 	  has_many :tags, -> { readonly }, through: :posts
 
   has_secure_password
