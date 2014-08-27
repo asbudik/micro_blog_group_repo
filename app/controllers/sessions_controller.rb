@@ -2,10 +2,10 @@ class SessionsController < ApplicationController
 	def new
 	end
 	def create
-		@user = User.authentication(params[:user][:email],params[:user][:password])
+		@user=User.authenticate(params[:user][:email],params[:user][:password])
 
 		if @user
-			session[:user_id]= @user.user_id
+			session[:user_id]= @user.id
 			redirect_to login_url, notice: "you're logged in"
 		else
 			flash.now[:error] = "you're not logged in"
@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:user_id]=nil
-		render text: "logged out"
+		#render text: "logged out"
+		redirect_to login_url, notice: "you're logged out"
 	end
 end

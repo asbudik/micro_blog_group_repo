@@ -11,11 +11,17 @@
           <%= render partial: "tags/tag", locals: {tag: tag, user: user} %>    <% end %>
     </div>
   </div>
+
+<% if session[:user_id]==@user.id %>
   <div class="col-xs-12">
+
     <div class="row">
       <%= button_to "Edit Post", edit_user_post_path(user.id, post.id), :method => :get, class: "btn btn-primary col-xs-offset-9 col-xs-2" %>
    </div>
+
    <div class="row">
      <%= button_to "Delete", user_post_path(@user.id, @post.id), method: :delete, class: "col-xs-offset-9 col-xs-2 btn btn-danger" %>
   </div>
-</div>
+
+  </div>
+   <% end %>
