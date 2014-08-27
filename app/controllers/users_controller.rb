@@ -11,11 +11,11 @@ class UsersController < ApplicationController
 	def create
 		new_user = params[:user].permit(:email,:email_confirmation, :password, :password_confirmation, :first_name,:last_name,:image_url)
 		check_if_new_user=User.new(new_user)
-		  if check_if_new_user
+		  if check_if_new_user.save
         redirect_to users_path
       else
-         flash.now[:notice]="Can't get you set up chump"
-      # @user=User.new
+      flash.now[:notice]="Can't Create User"
+       @user=User.new
       render 'users/new'
       end
 

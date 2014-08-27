@@ -1,8 +1,12 @@
 <div class="row cust-con">
   <div class="col-xs-offset-1 col-xs-6">
+  <%flash.each do|k,v|%>
+      <h2 id="<%=k%>"><%=v%></h2>
+      <%end%>
+
   <%= form_for [parent, comment] do |f| %>
     <div class="form-group">
-      <%= f.text_area :content, class: "form-control", placeholder: "Comment here" %> 
+      <%= f.text_area :content, class: "form-control", placeholder: "Comment here" %>
     </div>
     <div class="form-group">
       <%= f.submit class: "btn" %>
