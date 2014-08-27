@@ -56,11 +56,14 @@ ActiveRecord::Schema.define(version: 20140824201711) do
     t.datetime "updated_at"
   end
 
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "image_url"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

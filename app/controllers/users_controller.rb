@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         redirect_to users_path
       else
          flash.now[:notice]="Can't get you set up chump"
-      # @user=User.new
+      # @user=User.new 
       render 'users/new'
       end
 
