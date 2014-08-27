@@ -7,8 +7,8 @@
   </div>
   <div class="row">
     <div class="col-xs-offset-1 col-xs-11">
-      <% tags.each do |tag| %>
-        <%= render partial: "tags/tag", locals: {tag: tag, user: user} %>    <% end %>
+      <% tags.uniq.each do |tag| %>
+          <%= render partial: "tags/tag", locals: {tag: tag, user: user} %>    <% end %>
     </div>
   </div>
   <div class="col-xs-12">

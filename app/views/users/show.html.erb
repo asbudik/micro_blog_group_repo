@@ -20,8 +20,8 @@
 <% if @user.tags.length > 0 %>
 	<p>
 	<ul>
-		<% @user.tags.each do |tag| %>
-		<h6><li><a class="taglinks" href="/tags/<%=tag.id%>"><button class="btn-warning"><%=tag.name%></a></button></li></h6>
+		<% @user.tags.uniq.each do |tag| %>
+		<h6><li><a class="taglinks" href="/tags/<%=tag.id%>"><button class="btn-warning"><%=tag.name%></button></a></li></h6>
 		<% end %>
 	</ul>
 	</p>

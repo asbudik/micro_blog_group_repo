@@ -1,2 +1,17 @@
-
-<%= render partial: "form", locals: {user: @user, post: @post} %>
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8">
+  <%= form_for [@user, @post] do |f| %>
+    <div class="form-group">
+      <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
+    </div> 
+    <div class="form-group">
+      <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "Say something..." %>
+    </div>
+    <div class="form-group">
+      <%= text_area_tag :tags, @post.stringify_tags , class: "form-control", rows: "3", placeholder: @update_tags %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary btn-cust"%>
+    </div>
+  <% end %>
+</div>

@@ -5,7 +5,7 @@
 	<!-- DISPLAY EACH USER AND LINK TO THE USER OF THE TAG -->
 	<ul>
 	<h3>Users: </h3>
-	<% @tag.users.each do |user| %>
+	<% @tag.users.uniq.each do |user| %>
 	<!-- show the user associated with the tag -->
 		<li>	
 				 <a href="../users/<%=user.id%>"><%= user.first_name %> </a>

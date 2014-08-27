@@ -1,6 +1,6 @@
 <!-- SHOW A LIST OF TAGS WITH A LIST OF ALL USERS + COMMENTS ASSOCIATED WITH THE TAG  -->
 <h1 class="subtitle">Tags</h1>
-<% @tags.each do |tag| %>
+<% @tags.uniq.each do |tag| %>
 
 <!-- DISPLAY TAG NAME -->
 	<h2><a href="tags/<%=tag.id%>"><button class="btn btn-warning"><%= tag.name %></button></a></h2>

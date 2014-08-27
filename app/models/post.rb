@@ -14,11 +14,4 @@ class Post < ActiveRecord::Base
       end
       .join(", ")
   end
-
-  def add_tags(tags_arr)
-    existing = Tag.where(name: tags_arr)
-    new_tags = tags_arr - existing.map {|tag| tag.name }
-    existing.concat new_tags.map {|tag| Tag.create(name: tag)}
-    self.tags = existing
-  end
 end
