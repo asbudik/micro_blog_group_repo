@@ -25,11 +25,12 @@
 
   <ul class="nav navbar-nav navbar-right">
     <li class="about"><a class="links" href="/about_us">About Us</a></li>
-
+       <% if session[:user_id]!=@user %>
     <li class="logout"><a class="links" href="/logout">Logout</a>
-
+        <%end%>
+   <% if session[:user_id]==@user %>
     <li class="login"><a class="links" href="/login">Login</a>
-
+     <%end%>
   </ul>
 
 </div>
