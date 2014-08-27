@@ -8,10 +8,8 @@ Rails.application.routes.draw do
     resources :pages
     resources :posts
   end
-
-
   # post '/comments', to: "comments#create"
-  get '/users/:user_id/tags/:tag_id', to: 'tagusers#show', :as => "tag_user"
+  get '/users/:user_id/tags/:tag_id', to: 'tag_users#show', :as => "tag_user"
 
   get '/tags', to: 'tags#index'
   get '/tags/:id', to: 'tags#show'

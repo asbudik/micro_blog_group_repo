@@ -3,7 +3,7 @@
     <div class="row">
       <% tags.uniq.each do |tag| %>
         <div class="col-xs-6 col-sm-3">
-          <%= link_to tag.name, tag_user_path(user.id, tag.id) %>
+        <a href="/tag/<%= tag.id %>"><%= tag.name %></a>
         </div>
       <% end %>
     </div>

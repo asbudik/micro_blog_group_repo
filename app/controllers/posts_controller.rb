@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   def index
     @posts = @user.posts
   end
+  def post
+  end
 
   def create
     tag_params = params[:tags].split(/\,\s*|\s*\#|\s+/)
@@ -15,9 +17,16 @@ class PostsController < ApplicationController
       existing = Tag.where(name: tag_params)
       new_tags = tag_params - existing.map {|tag| tag.name }
       tag_params.uniq.each do |tag|
+        existing_tag = Tag.where(name: tag).first
+        if !existing_tag
 
-        new_tag = Tag.create(name: tag)
-        post.tags << new_tag
+            new_tag = Tag.create(name: tag)
+            post.tags << new_tag
+        else
+          if post != existing_tag
+            post.tags << existing_tag
+          end
+        end
       end
       @user.posts << post
       redirect_to user_posts_path(@user.id)

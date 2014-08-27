@@ -1,2 +1,4 @@
-
+<% flash.each do |k, v| %>
+  <h2 id="<%= k %>"><%= v %></h2>
+  <% end %>
 <%= render partial: "form", locals: {user: @user, post: @post} %>

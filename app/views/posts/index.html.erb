@@ -1,5 +1,11 @@
+<% flash.each do |k,v| %>
+  <h2 id="<%= k %>"><%= v %></h2>
+<% end %>
 <div>
   <% @posts.each do |post| %>
     <%= render partial: 'preview', :locals => {:post => post, :user => @user} %>
+    <% post.tags.each do |tag| %>
+    <a href="tags/<%= tag.id %>"><button><%= tag.name %></button></a>
+  <% end %>
   <% end %>
 </div>
