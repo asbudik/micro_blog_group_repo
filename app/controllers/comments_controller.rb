@@ -3,15 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     @parent.comments.create(comment_params)
+    redirect_to_post
 
-    check_if_new_comment=Comment.new(new_comment)
-      if check_if_new_comment.save
-        redirect_to post
-      else
-      flash.now[:notice]="Can't Create Comment"
-       @comment=Comment.new
-      render 'comments/_form'
-      end
   end
 
   private

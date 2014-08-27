@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+    @current_user = session[:user_id]
 	end
 	def create
 		new_user = params[:user].permit(:email,:email_confirmation, :password, :password_confirmation, :first_name,:last_name,:image_url)

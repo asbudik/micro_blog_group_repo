@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   post "posts/:post_id/comments", to: "comments#create", :as => "post_comments"
   post "posts/:post_id/comments/:id", to: "comments#create", :as => "post_comment"
   #sessions route
-   delete "/logout" => "session#destroy"
-    get "/logout" => 'session#destroy'
-    
+   delete "/logout" => "sessions#destroy"
+    get "/logout" => 'sessions#destroy'
+    get "/login" => "sessions#new"
+    post "/login" => "sessions#create"
 end
