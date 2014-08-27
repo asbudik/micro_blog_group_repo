@@ -1,8 +1,10 @@
 
 <!-- DISPLAY USER INFO -->
 <h1 class="subtitle"><%= @user.first_name %> <%= @user.last_name %></h1>
+<% if session[:user_id]==@user.id %>
 <a href ="/users/<%= @user.id %>/posts/new"><button class="btn-default">CREATE NEW POST</button></a>
 <a href="/users/<%=@user.id%>/pages/new"><button class="btn-default">CREATE NEW PAGE</button></a>
+<%end%>
 <p><%= @user.email %></p>
 <p><img class="userimage" src="<%= @user.image_url %>"></p>
 
