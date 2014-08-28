@@ -33,7 +33,7 @@ $(document).on("ready page:load", function(){
       $last = $(this);
       $last.parent().append($commentCon);
       $commentForm.on("click", function(e){
-        e.preventDefault();
+        // e.preventDefault();
       });
   })
 });

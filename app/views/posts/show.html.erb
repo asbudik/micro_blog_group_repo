@@ -2,9 +2,11 @@
   <%= render partial: "post", :locals => {:post => @post, :user => @user, tags: @post_tags} %>
   <div class="comments col-xs-11">
   <%= render :partial => "tags/tags", :locals => {tags: @tags, user: @user} %>
+  <div class="commentbox">
   <% @comments.each do |comment| %>
     <%= render partial: "comments/comment", :locals => {:comment => comment } %>
   <% end %>
+  </div>
   </div>
   <%= render :partial => "comments/form", :locals => {:parent => @post, :comment => @post.comments.new} %>
 </div>

@@ -4,7 +4,7 @@
       <div class="col-xs-offset-1 col-xs-10 comment-content">
         <%= comment.content %>
       </div>
-      <button class="comment btn col-xs-offset-1 col-xs-2" data-comment-id="<%= comment.id %>">Reply</button>
+      <button class="comment cbtn btn col-xs-offset-1 col-xs-2" data-comment-id="<%= comment.id %>">Reply</button>
     </div>
     <% comment.comments.each do | sub_comment | %>
       <%= render :partial => "comments/comment", :locals => { :comment => sub_comment} %>
