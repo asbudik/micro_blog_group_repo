@@ -1,0 +1,9 @@
+<h1 class="subtitle">Login Page</h1>
+
+
+<div class="form">
+	<%= form_tag passwords_path do %>
+		<%= text_field_tag :email, nil, placeholder: "Enter email" %>
+		<%= submit_tag "Reset Password" %>
+	<% end %>
+</div>

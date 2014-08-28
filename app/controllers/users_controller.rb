@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 		@user = User.new
     @current_user = session[:user_id]
 	end
+
 	def create
 		new_user = params[:user].permit(:email,:email_confirmation, :password, :password_confirmation, :first_name,:last_name,:image_url)
 		check_if_new_user=User.new(new_user)
@@ -23,8 +24,6 @@ class UsersController < ApplicationController
 	end
 
 
-
-
 	def show
 		id = params[:id]
 		@user = User.find(id)
@@ -37,10 +36,10 @@ class UsersController < ApplicationController
     @user = User.find(id)
     render :edit
   end
+
   def update
     user_id = params[:id]
     user = User.find(user_id)
-
     updated_params = params.require(:user).permit(:email,:email_confirmation,:first_name,:last_name,:image_url)
     user.update_attributes(updated_params)
     redirect_to user
