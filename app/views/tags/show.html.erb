@@ -7,14 +7,14 @@
 	<h3>Users: </h3>
 	<% @tag.users.uniq.each do |user| %>
 	<!-- show the user associated with the tag -->
-		<li>	
-				 <a href="../../../users/<%= @user.id %>"><%= user.first_name %> </a>
+		<li>
+				 <a href="../users/<%= user.id %>"><%= user.first_name %> </a>
 
 <!-- show all posts by the user -->
 				 <h4>All the posts by the user:</h4>
 				 <ul>
 				 	<% user.posts.each do |post|%>
-						<li><a href="../../../users/<%= @user.id %>/posts/<%=post.id%>"><%= post.title %></a></li>
+						<li><a href="../users/<%= user.id %>/posts/<%=post.id%>"><%= post.title %></a></li>
 				 	<% end %>
 				 </ul>
 		</li>

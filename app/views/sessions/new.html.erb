@@ -5,7 +5,12 @@
 
 <div class="form">
 	<%flash.each do |k,v|%>
-<h2 id="<%=k %>"> <%= v %></h2>
+	<% if session[:user_id]==@user %>
+		<h2 class="bg-danger"style="color:red;border-radius:10px;text-align:center;font-family:arial;" id="<%=k %>"> <%= v %></h2>
+
+	<%else%>
+		<h2 class="bg-success" style="color:green;border-radius:10px;text-align:center;font-family:arial"  id="<%=k %>"> <%= v %></h2
+	<%end%>
 	<%end%>
 <% if session[:user_id]==@user %>
 	<%= form_for :user do |f| %>
