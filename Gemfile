@@ -50,3 +50,4 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'closure_tree'
 gem 'rspec-rails'
+gem 'handlebars_assets'

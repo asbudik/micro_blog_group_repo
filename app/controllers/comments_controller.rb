@@ -24,3 +24,12 @@ class CommentsController < ApplicationController
       redirect_to user_post_path @post.user_id, @post.id
     end
 end
+
+# $.ajax({
+#   url: "",
+#   data: {q: test},
+#   method: POST,
+#   success: function(data) {
+#     console.log(data)
+#   }
+# })

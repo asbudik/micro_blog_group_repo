@@ -19,16 +19,18 @@
       <a href="/tags" class="links">Tags</a>
     </li>
     <li>
+    <% if session[:user_id]==nil%>
       <a href="/users/new" class="links">New User</a>
+    <% end %>
     </li>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
     <li class="about"><a class="links" href="/about_us">About Us</a></li>
-       <% if session[:user_id]!=@user %>
+       <% if session[:user_id]!=nil%>
     <li class="logout"><a class="links" href="/logout">Logout</a>
         <%end%>
-   <% if session[:user_id]==@user %>
+   <% if session[:user_id]==nil%>
     <li class="login"><a class="links" href="/login">Login</a>
      <%end%>
   </ul>
