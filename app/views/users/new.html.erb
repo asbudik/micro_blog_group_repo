@@ -4,13 +4,9 @@
 
 		<%flash.each do|k,v|%>
 			<h2 id="<%=k%>"><%=v%></h2>
-			<%end%>
+		<%end%>
 
 <%=form_for @user do|f| %>
-
-
-
-
 
   <%= f.text_field :email, placeholder: "email", class: "form-control"%> <br>
 	<%= f.text_field :email_confirmation, placeholder: "please confirm email", class: "form-control" %><br>

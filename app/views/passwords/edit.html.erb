@@ -6,12 +6,12 @@
 
 	<% flash.each do |k,v| %>
 			<h2 id="<% k %>"><%= v %></h2>
-		<% end %>
+	<% end %>
 
 
-<%= form_for @user, :url => {:action => "update", :id => @user.id}, :html=> {:method => "put"} do |f|%>
-<%= f.password_field :password, placeholder: "Enter your password" %>
-<%= f.password_field :password_confirmation, placeholder: "Confirm your password" %>
-<%= f.submit "Reset Password", class: "btn btn-primary" %>
-<% end %>
+		<%= form_for @user, :url => {:action => "update", :id => @user.id}, :html=> {:method => "put"} do |f|%>
+		<%= f.password_field :password, placeholder: "Enter your password", class: "form-control" %><br>
+		<%= f.password_field :password_confirmation, placeholder: "Confirm your password", class: "form-control" %><br>
+		<%= f.submit "Reset Password", class: "btn btn-primary" %>
+	<% end %>
 </div>
