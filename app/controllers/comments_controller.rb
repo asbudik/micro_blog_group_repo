@@ -25,11 +25,3 @@ class CommentsController < ApplicationController
     end
 end
 
-# $.ajax({
-#   url: "",
-#   data: {q: test},
-#   method: POST,
-#   success: function(data) {
-#     console.log(data)
-#   }
-# })

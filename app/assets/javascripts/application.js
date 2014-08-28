@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require handlebars.runtime
 //= require_tree ./templates
 //= require_tree .
+
+
 $(document).on("ready page:load", function(){
   var $commentCon = $("#new_comment").parent().clone();
   var $commentForm = $commentCon.find("#new_comment");
@@ -29,6 +32,9 @@ $(document).on("ready page:load", function(){
       $(this).hide();
       $last = $(this);
       $last.parent().append($commentCon);
+      $commentForm.on("click", function(e){
+        e.preventDefault();
+      });
   })
 });
 
