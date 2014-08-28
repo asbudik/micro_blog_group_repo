@@ -2,15 +2,16 @@
 <html>
 <head>
   <title>MicroBlog</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application'=> true%>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
 </head>
 <body>
 <div class="navbar-collapse collapse navbar-custom" id="navbar-main">
   <ul class="nav navbar-nav">
     <li class="dropdown">
-      <a data-toggle="dropdown" href="/" id="themes" class="active homelink">BlogSpot</a>
+      <a data-toggle="dropdown" href="/" id="themes" class="active homelink">MicroBlog</a>
     </li>
     <li>
       <a href="/users" class="links">Users</a>

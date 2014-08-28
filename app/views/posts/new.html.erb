@@ -3,11 +3,4 @@
   <% end %>
 <%= render partial: "form", locals: {user: @user, post: @post} %>
 
-
-<h1 class="subtitle">Tags</h1>
-
-<%= @tags.each do |tag| %>
-
-	<h2><a href="tags/<%=tag.id%>"><button class="btn btn-warning"><%= tag.name %></button></a></h2>
-	
-<% end %>
+<a href="users/<%= @user.id %>">Back</a>
