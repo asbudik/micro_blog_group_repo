@@ -23,7 +23,7 @@ class PasswordsController < ApplicationController
 			update_password = params.require(:user).permit(:password, :password_confirmation)
 			@user.update_attributes(update_password)
 			@user.save
-				redirect_to user_path
+				redirect_to "/"
 			end
 		end
 end
